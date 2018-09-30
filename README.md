@@ -29,7 +29,7 @@ I was forced to install an older version and removing the OpenSSH feature in win
 ## Start MiniKube
 Make sure there is an Switch called "External", see also https://kubernetes.io/docs/setup/minikube/
 
-> minikube start --vm-driver="hyperv" --hyperv-virtual-switch="External" --v=7 --alsologtostderr
+> minikube start --vm-driver="hyperv" --hyperv-virtual-switch="External" --memory 4096 --v=7 --alsologtostderr
 
 
 ## Testing
@@ -40,3 +40,6 @@ Make sure there is an Switch called "External", see also https://kubernetes.io/d
 > minikube dashboard
 
 ![dashboard](https://user-images.githubusercontent.com/29073072/46258449-3fa54100-c4cb-11e8-9bc9-75855a608576.png)
+
+### Increasing memory
+After everything was successful, tried to increase the amount of memory directly in Hyper-V manager. After that I couldn't get it working again, at least not accessing the cluster via the dashboard. So I deleted the .minikube folder in the users-folder and the VM, then re-installed it again with the `--memory 4096` option.
